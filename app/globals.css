@@ -1,26 +1,74 @@
 @import "tailwindcss";
+@config "../tailwind.config.ts";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  color-scheme: dark;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: #100101;
+  color: #F5F0F0;
+  font-family: var(--font-inter), "Inter", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: #100101;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #FF002F;
+  border-radius: 0;
+}
+
+/* Selection color */
+::selection {
+  background: #FF002F;
+  color: #100101;
+}
+
+a,
+button {
+  cursor: pointer;
+}
+
+/* Masonry columns */
+.masonry-grid {
+  column-count: 3;
+  column-gap: 16px;
+}
+
+@media (max-width: 1024px) {
+  .masonry-grid {
+    column-count: 2;
+  }
+}
+
+@media (max-width: 640px) {
+  .masonry-grid {
+    column-count: 1;
+  }
+}
+
+.masonry-grid-item {
+  break-inside: avoid;
+  margin-bottom: 16px;
+}
+
+/* Hide scrollbar for horizontal scroll */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
