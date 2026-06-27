@@ -16,7 +16,7 @@ export default function PageHero({ eyebrow, title, subtitle, className }: PageHe
       <div className="max-w-7xl mx-auto">
         <AnimatedSection>
           <EyebrowLabel text={eyebrow} className="mb-6" />
-          <h1 className="font-display text-[52px] md:text-[72px] lg:text-[96px] font-bold italic leading-[0.95] text-text-primary mb-6">
+          <h1 className="font-display text-[42px] sm:text-[52px] md:text-[72px] lg:text-[96px] font-bold italic leading-[1] lg:leading-[0.95] text-text-primary mb-6">
             {title}
           </h1>
           {subtitle && (

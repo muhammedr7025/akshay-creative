@@ -22,9 +22,9 @@ export default function HeroSection({ headline, subtext }: HeroSectionProps) {
         backgroundSize: '60px 60px'
       }} />
 
-      <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-24 w-full grid grid-cols-1 lg:grid-cols-5 gap-12 items-center relative z-10">
+      <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-24 w-full grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-12 items-center relative z-10 pt-24 lg:pt-0">
         {/* Left — Text content (60%) */}
-        <div className="lg:col-span-3 pt-24 lg:pt-0">
+        <div className="lg:col-span-3 order-2 lg:order-1 pb-24 lg:pb-0">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -44,7 +44,7 @@ export default function HeroSection({ headline, subtext }: HeroSectionProps) {
                   delay: 0.2 + i * 0.15,
                   ease: [0.22, 1, 0.36, 1],
                 }}
-                className="font-display text-[52px] md:text-[72px] lg:text-[96px] font-bold italic leading-[0.95] text-text-primary"
+                className="font-display text-[42px] sm:text-[52px] md:text-[72px] lg:text-[96px] font-bold italic leading-[1] lg:leading-[0.95] text-text-primary"
               >
                 {line}
               </motion.h1>
@@ -85,7 +85,7 @@ export default function HeroSection({ headline, subtext }: HeroSectionProps) {
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1.2, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-          className="lg:col-span-2 relative hidden lg:block"
+          className="lg:col-span-2 relative order-1 lg:order-2 mt-8 lg:mt-0 max-w-[300px] sm:max-w-[400px] lg:max-w-none w-full mx-auto"
         >
           <div className="relative aspect-[3/4] w-full">
             <Image
