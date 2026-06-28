@@ -43,7 +43,7 @@ export default function HeroSection({ headline, subtext }: HeroSectionProps) {
         initial={{ opacity: 0, y: 40, scale: 0.98 }}
         animate={{ opacity: 1, y: 0, scale: 1 }}
         transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-        className="w-full max-w-[1400px] mx-auto relative rounded-[24px] md:rounded-[32px] overflow-hidden bg-[#0A0A0A] border border-void-border/50 flex flex-col md:flex-row min-h-[600px] md:min-h-[750px] shadow-[0_0_100px_rgba(255,0,47,0.05)] group"
+        className="w-full max-w-[1400px] mx-auto relative rounded-[24px] md:rounded-[32px] overflow-hidden bg-void border border-gold/20 flex flex-col md:flex-row min-h-[600px] md:min-h-[750px] shadow-[0_0_100px_rgba(255,170,0,0.05)] group"
       >
         
         {/* Right Side / Background Image */}
@@ -59,12 +59,12 @@ export default function HeroSection({ headline, subtext }: HeroSectionProps) {
             />
           </motion.div>
           {/* Enhanced Gradient overlays */}
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] via-[#0A0A0A]/60 to-transparent md:hidden" />
-          <div className="absolute inset-0 hidden md:block bg-gradient-to-r from-[#0A0A0A] via-[#0A0A0A]/90 to-transparent w-full md:w-[60%]" />
+          <div className="absolute inset-0 bg-gradient-to-t from-void via-void/60 to-transparent md:hidden" />
+          <div className="absolute inset-0 hidden md:block bg-gradient-to-r from-void via-void/90 to-transparent w-full md:w-[60%]" />
         </div>
 
         {/* Left Side / Content */}
-        <div className="w-full md:w-[65%] lg:w-[55%] p-8 md:p-16 lg:p-24 relative z-20 flex flex-col justify-center bg-gradient-to-t from-[#0A0A0A] via-[#0A0A0A]/95 to-transparent md:bg-none mt-auto md:mt-0">
+        <div className="w-full md:w-[65%] lg:w-[55%] p-8 md:p-16 lg:p-24 relative z-20 flex flex-col justify-center bg-gradient-to-t from-void via-void/95 to-transparent md:bg-none mt-auto md:mt-0">
           
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -72,8 +72,8 @@ export default function HeroSection({ headline, subtext }: HeroSectionProps) {
             transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
             className="flex items-center gap-2 mb-8"
           >
-            <Sparkles className="w-4 h-4 text-blaze" />
-            <EyebrowLabel text="AKSHAY'S CREATIVE PLATFORM" className="mb-0" />
+            <Sparkles className="w-4 h-4 text-gold" />
+            <EyebrowLabel text="AKSHAY'S CREATIVE PLATFORM" className="mb-0 text-gold !font-light" />
           </motion.div>
 
           <div className="mb-8 relative">
@@ -87,8 +87,8 @@ export default function HeroSection({ headline, subtext }: HeroSectionProps) {
                     delay: 0.4 + i * 0.15,
                     ease: [0.16, 1, 0.3, 1],
                   }}
-                  className={`font-sans text-[44px] sm:text-[56px] md:text-[72px] lg:text-[84px] font-bold leading-[1.05] tracking-tight ${
-                    i === 2 ? 'text-blaze' : 'text-text-primary'
+                  className={`font-sans uppercase text-[44px] sm:text-[56px] md:text-[72px] lg:text-[84px] font-light leading-[1.05] tracking-[0.05em] ${
+                    i === 0 ? 'text-text-primary' : i === 1 ? 'text-gold' : 'text-blaze'
                   }`}
                 >
                   {line}
@@ -101,7 +101,7 @@ export default function HeroSection({ headline, subtext }: HeroSectionProps) {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.9, ease: [0.16, 1, 0.3, 1] }}
-            className="text-text-primary/70 text-sm md:text-lg max-w-[460px] leading-relaxed mb-12 font-sans font-light"
+            className="text-text-primary/70 uppercase tracking-widest text-sm md:text-md max-w-[460px] leading-relaxed mb-12 font-sans font-light"
           >
             {subtext || 'A creative platform where photographers, models, videographers, and editors come together to create iconic visual stories.'}
           </motion.p>
@@ -115,19 +115,19 @@ export default function HeroSection({ headline, subtext }: HeroSectionProps) {
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <WhatsAppButton
                 message={WHATSAPP_MESSAGES.bookShoot}
-                label="Book a Shoot"
+                label="BOOK A SHOOT"
                 variant="primary"
                 icon={<Calendar className="w-[18px] h-[18px] mr-2" />}
-                className="justify-center rounded-xl bg-blaze text-void hover:bg-blaze shadow-[0_0_20px_rgba(255,0,47,0.3)] hover:shadow-[0_0_30px_rgba(255,0,47,0.5)] border-none font-bold text-xs tracking-wider !py-4 w-full px-8 transition-all duration-300"
+                className="justify-center rounded-xl bg-blaze text-white hover:bg-blaze/90 shadow-[0_0_20px_rgba(255,0,47,0.3)] hover:shadow-[0_0_30px_rgba(255,0,47,0.5)] border-none font-light uppercase tracking-[0.2em] text-[11px] !py-4 w-full px-8 transition-all duration-300"
               />
             </motion.div>
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <WhatsAppButton
                 message={WHATSAPP_MESSAGES.joinCommunity}
-                label="Join the Community"
+                label="JOIN THE COMMUNITY"
                 variant="secondary"
                 icon={<UserPlus className="w-[18px] h-[18px] mr-2" />}
-                className="justify-center rounded-xl border border-void-border/80 bg-void/30 backdrop-blur-md text-text-primary hover:bg-void-border/50 font-bold text-xs tracking-wider !py-4 w-full px-8 transition-all duration-300"
+                className="justify-center rounded-xl border border-gold/50 bg-void/50 backdrop-blur-md text-gold hover:bg-gold/10 font-light uppercase tracking-[0.2em] text-[11px] !py-4 w-full px-8 transition-all duration-300"
               />
             </motion.div>
           </motion.div>
