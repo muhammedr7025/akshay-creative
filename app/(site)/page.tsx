@@ -86,30 +86,31 @@ export default async function HomePage() {
       <SectionDivider />
 
       {/* Final CTA / Footer Teaser */}
-      <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden border-t border-void-border bg-void">
+      <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden border-t border-void-border">
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <img 
             src="https://images.unsplash.com/photo-1604904612715-47bf9d9bc670?q=80&w=2000" 
             alt="Creative Fashion" 
-            className="w-full h-full object-cover object-center opacity-20 scale-105 mix-blend-luminosity"
+            className="w-full h-full object-cover object-center opacity-40 scale-105"
           />
           {/* Gradients for depth and readability */}
-          <div className="absolute inset-0 bg-gradient-to-b from-void via-void/90 to-void" />
+          <div className="absolute inset-0 bg-gradient-to-b from-void via-void/80 to-void" />
+          <div className="absolute inset-0 bg-blaze/5 mix-blend-overlay" />
         </div>
 
         <div className="max-w-[1200px] mx-auto px-6 md:px-12 lg:px-24 relative z-10 text-center flex flex-col items-center">
           <AnimatedSection>
-            <span className="block font-sans text-sm font-light text-text-primary uppercase tracking-[0.4em] mb-12">
+            <span className="block font-sans text-[11px] font-bold text-blaze uppercase tracking-[0.3em] mb-8">
               Your next big project starts here
             </span>
             
-            <h2 className="flex flex-col items-center justify-center mb-16 gap-4">
-              <span className="font-display text-4xl md:text-6xl lg:text-7xl font-light text-blaze tracking-widest leading-none">
-                READY TO CREATE
+            <h2 className="flex flex-col items-center justify-center mb-16">
+              <span className="font-sans text-3xl md:text-5xl lg:text-6xl font-medium text-text-primary tracking-tight leading-none mb-2">
+                Ready to create
               </span>
-              <span className="font-display text-5xl md:text-7xl lg:text-8xl font-light text-gold tracking-[0.1em] leading-none drop-shadow-2xl">
-                SOMETHING ICONIC?
+              <span className="font-display text-6xl md:text-8xl lg:text-[140px] font-bold italic text-white tracking-tighter leading-none drop-shadow-2xl">
+                something iconic?
               </span>
             </h2>
 
@@ -118,15 +119,15 @@ export default async function HomePage() {
                 message={WHATSAPP_MESSAGES.bookShoot}
                 label="Book a Shoot"
                 variant="primary"
-                className="!px-10 !py-4 !text-sm !font-light !tracking-[0.2em]"
+                className="!px-10 !py-4 !text-sm"
               />
-              <span className="font-display font-light text-text-primary/40">OR</span>
+              <span className="font-display italic text-text-primary/40">or</span>
               <WhatsAppButton
                 message={WHATSAPP_MESSAGES.joinCommunity}
                 label="Join the Platform"
                 variant="secondary"
                 showIcon={false}
-                className="!px-10 !py-4 !text-sm !font-light !tracking-[0.2em] border-void-border/80 hover:border-gold hover:text-gold"
+                className="!px-10 !py-4 !text-sm border-void-border/80 hover:border-text-primary"
               />
             </div>
           </AnimatedSection>
