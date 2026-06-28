@@ -38,7 +38,7 @@ const roles = [
     title: 'Editors',
     description: 'Photo retouchers and colorists bringing raw footage to life.',
     count: '10+ Creators',
-    image: 'https://images.unsplash.com/photo-1574717024453-354056aafd0c?q=80&w=800',
+    image: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=800',
   },
 ]
 
