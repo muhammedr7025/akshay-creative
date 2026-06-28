@@ -32,22 +32,22 @@ export default function OpportunitiesTeaser({ opportunities }: OpportunitiesTeas
         <AnimatedSection className="mb-16 md:mb-24 flex flex-col md:flex-row md:items-end justify-between gap-8">
           <div>
             <div className="inline-block px-4 py-1 border border-void-border/80 rounded-full mb-6">
-              <span className="font-sans text-[11px] font-bold text-text-primary uppercase tracking-[0.2em]">
+              <span className="font-sans text-[11px] font-bold text-blaze uppercase tracking-[0.2em]">
                 LATEST OPPORTUNITIES
               </span>
             </div>
-            <h2 className="font-sans text-5xl md:text-7xl lg:text-[90px] font-bold text-text-primary leading-[0.9] tracking-tight">
-              Open Calls
+            <h2 className="font-sans text-5xl md:text-7xl lg:text-[90px] font-bold text-gold uppercase leading-[0.9] tracking-[0.05em]">
+              OPEN CALLS
             </h2>
           </div>
           <Link
             href="/opportunities"
-            className="group flex items-center gap-3 pb-2 border-b border-void-border hover:border-blaze transition-colors"
+            className="group flex items-center gap-3 pb-2 border-b border-void-border hover:border-gold transition-colors"
           >
-            <span className="font-sans text-[11px] font-bold text-text-primary uppercase tracking-[0.2em] group-hover:text-blaze transition-colors">
+            <span className="font-sans text-[11px] font-bold text-text-primary uppercase tracking-[0.2em] group-hover:text-gold transition-colors">
               View All Opportunities
             </span>
-            <ArrowUpRight className="w-4 h-4 text-text-primary/50 group-hover:text-blaze group-hover:-translate-y-1 group-hover:translate-x-1 transition-all" />
+            <ArrowUpRight className="w-4 h-4 text-text-primary/50 group-hover:text-gold group-hover:-translate-y-1 group-hover:translate-x-1 transition-all" />
           </Link>
         </AnimatedSection>
 

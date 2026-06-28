@@ -106,11 +106,11 @@ export default async function HomePage() {
             </span>
             
             <h2 className="flex flex-col items-center justify-center mb-16">
-              <span className="font-sans text-3xl md:text-5xl lg:text-6xl font-medium text-text-primary tracking-tight leading-none mb-2">
-                Ready to create
+              <span className="font-sans text-3xl md:text-5xl lg:text-6xl font-bold text-blaze tracking-tight leading-none mb-2">
+                READY TO CREATE
               </span>
-              <span className="font-display text-6xl md:text-8xl lg:text-[140px] font-bold italic text-white tracking-tighter leading-none drop-shadow-2xl">
-                something iconic?
+              <span className="font-display text-6xl md:text-8xl lg:text-[140px] font-bold text-gold tracking-tighter leading-none drop-shadow-2xl">
+                SOMETHING ICONIC?
               </span>
             </h2>
 
@@ -121,13 +121,13 @@ export default async function HomePage() {
                 variant="primary"
                 className="!px-10 !py-4 !text-sm"
               />
-              <span className="font-display italic text-text-primary/40">or</span>
+              <span className="font-display text-text-primary/40 font-bold">OR</span>
               <WhatsAppButton
                 message={WHATSAPP_MESSAGES.joinCommunity}
                 label="Join the Platform"
                 variant="secondary"
                 showIcon={false}
-                className="!px-10 !py-4 !text-sm border-void-border/80 hover:border-text-primary"
+                className="!px-10 !py-4 !text-sm border-void-border/80 hover:border-gold hover:text-gold"
               />
             </div>
           </AnimatedSection>
