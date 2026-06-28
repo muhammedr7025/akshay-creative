@@ -10,14 +10,14 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        blaze: "#DCB67A",
-        "blaze-dim": "#8A6D3F",
-        void: "#000000",
-        "void-surface": "#0F0F0F",
-        "void-border": "#1F1F1F",
-        "void-deep": "#000000",
-        "text-primary": "#FFFFFF",
-        "text-muted": "#8A8A8A",
+        blaze: "#FF002F",
+        "blaze-dim": "#8B0018",
+        void: "#100101",
+        "void-surface": "#1A0101",
+        "void-border": "#2D0404",
+        "void-deep": "#0A0000",
+        "text-primary": "#F5F0F0",
+        "text-muted": "#7A5555",
       },
       fontFamily: {
         display: ["var(--font-playfair)", "Playfair Display", "serif"],
@@ -25,8 +25,8 @@ const config: Config = {
         label: ["var(--font-space)", "Space Grotesk", "monospace"],
       },
       boxShadow: {
-        blaze: "0 0 20px rgba(220, 182, 122, 0.15)",
-        "blaze-strong": "0 0 40px rgba(220, 182, 122, 0.25)",
+        blaze: "0 0 20px rgba(255, 0, 47, 0.15)",
+        "blaze-strong": "0 0 40px rgba(255, 0, 47, 0.25)",
       },
     },
   },

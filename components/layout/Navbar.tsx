@@ -46,8 +46,8 @@ export default function Navbar() {
         <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-24 flex items-center justify-between h-20">
           {/* Logo */}
           <Link href="/" className="flex flex-col items-start justify-center group">
-            <span className="text-[16px] md:text-xl font-sans tracking-[0.2em] font-medium text-text-primary">CREATIVE</span>
-            <span className="text-[9px] md:text-[10px] font-sans tracking-[0.4em] text-text-muted mt-[-2px] group-hover:text-blaze transition-colors">ECOSYSTEM</span>
+            <span className="text-[16px] md:text-xl font-sans tracking-[0.2em] font-medium text-text-primary">AKSHAY</span>
+            <span className="text-[9px] md:text-[10px] font-sans tracking-[0.4em] text-text-muted mt-[-2px] group-hover:text-blaze transition-colors">CREATIVE</span>
           </Link>
 
           {/* Desktop nav */}

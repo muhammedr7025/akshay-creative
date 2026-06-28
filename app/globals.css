@@ -6,8 +6,8 @@
 }
 
 body {
-  background-color: #000000;
-  color: #FFFFFF;
+  background-color: #100101;
+  color: #F5F0F0;
   font-family: var(--font-inter), "Inter", sans-serif;
 }
 
@@ -21,18 +21,18 @@ html {
 }
 
 ::-webkit-scrollbar-track {
-  background: #000000;
+  background: #100101;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #DCB67A;
+  background: #FF002F;
   border-radius: 0;
 }
 
 /* Selection color */
 ::selection {
-  background: #DCB67A;
-  color: #000000;
+  background: #FF002F;
+  color: #100101;
 }
 
 a,

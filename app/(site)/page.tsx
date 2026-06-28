@@ -25,7 +25,10 @@ export default async function HomePage() {
   return (
     <>
       {/* Hero */}
-      <HeroSection />
+      <HeroSection
+        headline={settings.heroHeadline}
+        subtext={settings.heroSubtext}
+      />
 
       <SectionDivider />
 

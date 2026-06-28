@@ -2,12 +2,17 @@
 
 import Image from 'next/image'
 import { motion } from 'framer-motion'
+import EyebrowLabel from '@/components/shared/EyebrowLabel'
 import WhatsAppButton from '@/components/shared/WhatsAppButton'
 import { WHATSAPP_MESSAGES } from '@/lib/whatsapp'
 import { Calendar, UserPlus } from 'lucide-react'
+interface HeroSectionProps {
+  headline?: string
+  subtext?: string
+}
 
-export default function HeroSection() {
-  const lines = ['CREATE.', 'COLLABORATE.', 'INSPIRE.']
+export default function HeroSection({ headline, subtext }: HeroSectionProps) {
+  const lines = (headline || 'CREATE.\nCOLLABORATE.\nINSPIRE.').split('\n')
 
   return (
     <section className="relative min-h-[90vh] md:min-h-screen flex items-center bg-void overflow-hidden">
@@ -28,6 +33,14 @@ export default function HeroSection() {
 
       <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-24 w-full relative z-10 pt-20">
         <div className="max-w-xl">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+          >
+            <EyebrowLabel text="AKSHAY'S CREATIVE PLATFORM" className="mb-8" />
+          </motion.div>
+
           <div className="mb-6">
             {lines.map((line, i) => (
               <motion.h1
@@ -39,7 +52,7 @@ export default function HeroSection() {
                   delay: 0.2 + i * 0.15,
                   ease: [0.22, 1, 0.36, 1],
                 }}
-                className={`font-sans text-[48px] sm:text-[64px] md:text-[80px] font-medium leading-[1.1] ${
+                className={`font-display text-[48px] sm:text-[64px] md:text-[80px] font-bold italic leading-[1] ${
                   i === 2 ? 'text-blaze' : 'text-text-primary'
                 }`}
               >
@@ -54,7 +67,7 @@ export default function HeroSection() {
             transition={{ duration: 0.8, delay: 0.7, ease: [0.22, 1, 0.36, 1] }}
             className="text-text-primary/90 text-sm md:text-base max-w-md leading-relaxed mb-8"
           >
-            A creative ecosystem connecting photographers, videographers, models, editors and brands to create extraordinary visual stories together.
+            {subtext || 'A creative platform where photographers, models, videographers, and editors come together to create iconic visual stories.'}
           </motion.p>
 
           <motion.div
