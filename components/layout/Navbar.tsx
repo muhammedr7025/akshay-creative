@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Menu, X } from 'lucide-react'
+import { Menu, X, Search, ShoppingBag } from 'lucide-react'
 import WhatsAppButton from '@/components/shared/WhatsAppButton'
 import { WHATSAPP_MESSAGES } from '@/lib/whatsapp'
 import { cn } from '@/lib/utils'
@@ -45,11 +45,9 @@ export default function Navbar() {
       >
         <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-24 flex items-center justify-between h-20">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-3 group">
-            <span className="text-2xl font-display font-bold italic text-blaze">AC</span>
-            <span className="hidden md:block font-label text-[10px] uppercase tracking-[0.2em] text-text-primary group-hover:text-blaze transition-colors">
-              Akshay Creative
-            </span>
+          <Link href="/" className="flex flex-col items-start justify-center group">
+            <span className="text-[16px] md:text-xl font-sans tracking-[0.2em] font-medium text-text-primary">CREATIVE</span>
+            <span className="text-[9px] md:text-[10px] font-sans tracking-[0.4em] text-text-muted mt-[-2px] group-hover:text-blaze transition-colors">ECOSYSTEM</span>
           </Link>
 
           {/* Desktop nav */}
@@ -76,13 +74,19 @@ export default function Navbar() {
             ))}
           </div>
 
-          {/* Desktop CTA */}
-          <div className="hidden lg:block">
+          {/* Desktop CTA & Icons */}
+          <div className="hidden lg:flex items-center gap-6">
+            <button className="text-text-primary hover:text-blaze transition-colors" aria-label="Search">
+              <Search className="w-5 h-5" />
+            </button>
+            <button className="text-text-primary hover:text-blaze transition-colors" aria-label="Cart">
+              <ShoppingBag className="w-5 h-5" />
+            </button>
             <WhatsAppButton
-              message={WHATSAPP_MESSAGES.bookShoot}
-              label="Book a Shoot"
+              message={WHATSAPP_MESSAGES.joinCommunity}
+              label="Join Now"
               variant="primary"
-              className="!py-2.5 !px-6 !text-[10px]"
+              className="!py-2 !px-6 !text-[11px] rounded-md font-sans capitalize tracking-normal text-void"
               showIcon={false}
             />
           </div>

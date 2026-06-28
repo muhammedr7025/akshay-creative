@@ -2,49 +2,46 @@
 
 import Image from 'next/image'
 import { motion } from 'framer-motion'
-import EyebrowLabel from '@/components/shared/EyebrowLabel'
 import WhatsAppButton from '@/components/shared/WhatsAppButton'
 import { WHATSAPP_MESSAGES } from '@/lib/whatsapp'
+import { Calendar, UserPlus } from 'lucide-react'
 
-interface HeroSectionProps {
-  headline?: string
-  subtext?: string
-}
-
-export default function HeroSection({ headline, subtext }: HeroSectionProps) {
-  const lines = (headline || 'Create.\nCollaborate.\nInspire.').split('\n')
+export default function HeroSection() {
+  const lines = ['CREATE.', 'COLLABORATE.', 'INSPIRE.']
 
   return (
-    <section className="relative min-h-screen flex items-center bg-void overflow-hidden">
-      {/* Background grid pattern */}
-      <div className="absolute inset-0 opacity-[0.03]" style={{
-        backgroundImage: 'linear-gradient(rgba(255,0,47,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(255,0,47,0.3) 1px, transparent 1px)',
-        backgroundSize: '60px 60px'
-      }} />
+    <section className="relative min-h-[90vh] md:min-h-screen flex items-center bg-void overflow-hidden">
+      {/* Background Image */}
+      <div className="absolute inset-0 z-0">
+        <Image
+          src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?q=80&w=2000"
+          alt="Creative photographer"
+          fill
+          className="object-cover object-top opacity-60 md:opacity-80"
+          priority
+          sizes="100vw"
+        />
+        {/* Gradient overlays to fade into black */}
+        <div className="absolute inset-0 bg-gradient-to-t from-void via-void/50 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-void via-void/70 to-transparent w-full md:w-2/3" />
+      </div>
 
-      <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-24 w-full grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-12 items-center relative z-10 pt-24 lg:pt-0">
-        {/* Left — Text content (60%) */}
-        <div className="lg:col-span-3 order-2 lg:order-1 pb-24 lg:pb-0">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          >
-            <EyebrowLabel text="AKSHAY'S CREATIVE PLATFORM" className="mb-8" />
-          </motion.div>
-
-          <div className="mb-8">
+      <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-24 w-full relative z-10 pt-20">
+        <div className="max-w-xl">
+          <div className="mb-6">
             {lines.map((line, i) => (
               <motion.h1
                 key={i}
-                initial={{ opacity: 0, x: -50 }}
-                animate={{ opacity: 1, x: 0 }}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
                 transition={{
                   duration: 0.8,
                   delay: 0.2 + i * 0.15,
                   ease: [0.22, 1, 0.36, 1],
                 }}
-                className="font-display text-[42px] sm:text-[52px] md:text-[72px] lg:text-[96px] font-bold italic leading-[1] lg:leading-[0.95] text-text-primary"
+                className={`font-sans text-[48px] sm:text-[64px] md:text-[80px] font-medium leading-[1.1] ${
+                  i === 2 ? 'text-blaze' : 'text-text-primary'
+                }`}
               >
                 {line}
               </motion.h1>
@@ -55,9 +52,9 @@ export default function HeroSection({ headline, subtext }: HeroSectionProps) {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.7, ease: [0.22, 1, 0.36, 1] }}
-            className="text-text-muted text-lg md:text-xl max-w-xl leading-relaxed mb-10"
+            className="text-text-primary/90 text-sm md:text-base max-w-md leading-relaxed mb-8"
           >
-            {subtext || 'A creative platform where photographers, models, videographers, and editors come together to create iconic visual stories.'}
+            A creative ecosystem connecting photographers, videographers, models, editors and brands to create extraordinary visual stories together.
           </motion.p>
 
           <motion.div
@@ -68,55 +65,21 @@ export default function HeroSection({ headline, subtext }: HeroSectionProps) {
           >
             <WhatsAppButton
               message={WHATSAPP_MESSAGES.bookShoot}
-              label="Book a Shoot →"
+              label="Book a Shoot"
               variant="primary"
+              icon={<Calendar className="w-4 h-4 mr-2" />}
+              className="bg-blaze text-void hover:bg-blaze/90 font-medium border-none !py-3"
             />
             <WhatsAppButton
               message={WHATSAPP_MESSAGES.joinCommunity}
               label="Join the Community"
               variant="secondary"
-              showIcon={false}
+              icon={<UserPlus className="w-4 h-4 mr-2" />}
+              className="border-blaze text-text-primary hover:bg-blaze/10 !py-3"
             />
           </motion.div>
         </div>
-
-        {/* Right — Hero image (40%) */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1.2, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-          className="lg:col-span-2 relative order-1 lg:order-2 mt-8 lg:mt-0 max-w-[300px] sm:max-w-[400px] lg:max-w-none w-full mx-auto"
-        >
-          <div className="relative aspect-[3/4] w-full">
-            <Image
-              src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=800&q=80"
-              alt="Creative portrait with dramatic lighting"
-              fill
-              className="object-cover"
-              priority
-              sizes="(max-width: 1024px) 100vw, 40vw"
-            />
-            {/* Red tinted overlay */}
-            <div className="absolute inset-0 bg-gradient-to-t from-void via-transparent to-transparent" />
-            <div className="absolute inset-0 bg-blaze/10 mix-blend-multiply" />
-          </div>
-          {/* Decorative border */}
-          <div className="absolute -top-3 -right-3 w-full h-full border border-blaze/20" />
-        </motion.div>
       </div>
-
-      {/* Bottom scroll indicator */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.5, duration: 1 }}
-        className="absolute bottom-8 left-6 md:left-12 lg:left-24 flex items-center gap-4"
-      >
-        <span className="w-12 h-[1px] bg-blaze" />
-        <span className="font-label text-[10px] uppercase tracking-[0.2em] text-text-muted">
-          Scroll to Explore
-        </span>
-      </motion.div>
     </section>
   )
 }

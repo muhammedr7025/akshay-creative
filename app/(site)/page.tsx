@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import HeroSection from '@/components/home/HeroSection'
 import ServicesStrip from '@/components/home/ServicesStrip'
+import HowItWorks from '@/components/home/HowItWorks'
 import CommunityTeaser from '@/components/home/CommunityTeaser'
 import OpportunitiesTeaser from '@/components/home/OpportunitiesTeaser'
 import AnimatedSection from '@/components/shared/AnimatedSection'
@@ -24,15 +25,16 @@ export default async function HomePage() {
   return (
     <>
       {/* Hero */}
-      <HeroSection
-        headline={settings.heroHeadline}
-        subtext={settings.heroSubtext}
-      />
+      <HeroSection />
 
       <SectionDivider />
 
       {/* Services Strip */}
       <ServicesStrip services={services} />
+
+      <SectionDivider />
+
+      <HowItWorks />
 
       <SectionDivider />
 
