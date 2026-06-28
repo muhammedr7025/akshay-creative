@@ -1,12 +1,11 @@
 'use client'
 
 import Image from 'next/image'
-import { motion, useScroll, useTransform } from 'framer-motion'
-import { useRef } from 'react'
+import { motion } from 'framer-motion'
 import EyebrowLabel from '@/components/shared/EyebrowLabel'
 import WhatsAppButton from '@/components/shared/WhatsAppButton'
 import { WHATSAPP_MESSAGES } from '@/lib/whatsapp'
-import { Calendar, UserPlus, Sparkles } from 'lucide-react'
+import { Calendar, UserPlus } from 'lucide-react'
 
 interface HeroSectionProps {
   headline?: string
@@ -15,124 +14,116 @@ interface HeroSectionProps {
 
 export default function HeroSection({ headline, subtext }: HeroSectionProps) {
   const lines = (headline || 'CREATE.\nCOLLABORATE.\nINSPIRE.').split('\n')
-  const containerRef = useRef(null)
-  
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start start", "end start"]
-  })
-
-  // Subtle parallax effect on the image
-  const imageY = useTransform(scrollYProgress, [0, 1], ['0%', '15%'])
 
   return (
-    <section ref={containerRef} className="relative min-h-[90vh] md:min-h-screen flex items-center bg-void px-4 md:px-8 lg:px-12 py-24 md:py-32 overflow-hidden perspective-1000">
-      {/* Dynamic Background pattern */}
-      <motion.div 
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 0.03 }}
-        transition={{ duration: 2 }}
-        className="absolute inset-0 pointer-events-none" 
-        style={{
-          backgroundImage: 'linear-gradient(rgba(255,255,255,1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,1) 1px, transparent 1px)',
-          backgroundSize: '40px 40px'
-        }} 
-      />
-
-      <motion.div 
-        initial={{ opacity: 0, y: 40, scale: 0.98 }}
-        animate={{ opacity: 1, y: 0, scale: 1 }}
-        transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-        className="w-full max-w-[1400px] mx-auto relative rounded-[24px] md:rounded-[32px] overflow-hidden bg-void border border-gold/20 flex flex-col md:flex-row min-h-[600px] md:min-h-[750px] shadow-[0_0_100px_rgba(255,170,0,0.05)] group"
-      >
+    <section className="relative min-h-[95vh] w-full flex flex-col lg:flex-row bg-void overflow-hidden">
+      {/* Left Content Area */}
+      <div className="w-full lg:w-1/2 min-h-[60vh] lg:min-h-full flex flex-col justify-center px-6 md:px-16 lg:px-24 xl:px-32 relative z-20 pt-32 lg:pt-0">
         
-        {/* Right Side / Background Image */}
-        <div className="absolute inset-0 md:inset-y-0 md:left-[30%] md:right-0 w-full md:w-[70%] h-full z-10 overflow-hidden">
-          <motion.div style={{ y: imageY }} className="w-full h-[120%] -top-[10%] relative">
-            <Image
-              src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=2000"
-              alt="Creative fashion portrait"
-              fill
-              className="object-cover object-center opacity-60 md:opacity-80 mix-blend-luminosity group-hover:scale-105 transition-transform duration-[20s] ease-out"
-              priority
-              sizes="(max-width: 768px) 100vw, 70vw"
-            />
-          </motion.div>
-          {/* Enhanced Gradient overlays */}
-          <div className="absolute inset-0 bg-gradient-to-t from-void via-void/60 to-transparent md:hidden" />
-          <div className="absolute inset-0 hidden md:block bg-gradient-to-r from-void via-void/90 to-transparent w-full md:w-[60%]" />
-        </div>
+        {/* Subtle Background Grid Pattern */}
+        <div 
+          className="absolute inset-0 opacity-[0.03] pointer-events-none" 
+          style={{
+            backgroundImage: 'linear-gradient(rgba(255,255,255,1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,1) 1px, transparent 1px)',
+            backgroundSize: '40px 40px'
+          }} 
+        />
 
-        {/* Left Side / Content */}
-        <div className="w-full md:w-[65%] lg:w-[55%] p-8 md:p-16 lg:p-24 relative z-20 flex flex-col justify-center bg-gradient-to-t from-void via-void/95 to-transparent md:bg-none mt-auto md:mt-0">
-          
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-            className="flex items-center gap-2 mb-8"
-          >
-            <Sparkles className="w-4 h-4 text-gold" />
-            <EyebrowLabel text="AKSHAY'S CREATIVE PLATFORM" className="mb-0 text-gold !font-light" />
-          </motion.div>
-
-          <div className="mb-8 relative">
-            {lines.map((line, i) => (
-              <div key={i} className="overflow-hidden">
-                <motion.h1
-                  initial={{ opacity: 0, y: 100 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{
-                    duration: 1,
-                    delay: 0.4 + i * 0.15,
-                    ease: [0.16, 1, 0.3, 1],
-                  }}
-                  className={`font-sans uppercase text-[44px] sm:text-[56px] md:text-[72px] lg:text-[84px] font-light leading-[1.05] tracking-[0.05em] ${
-                    i === 0 ? 'text-text-primary' : i === 1 ? 'text-gold' : 'text-blaze'
-                  }`}
-                >
-                  {line}
-                </motion.h1>
-              </div>
-            ))}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          className="mb-8"
+        >
+          <div className="inline-flex items-center gap-3 px-4 py-1.5 border border-gold/30 rounded-full bg-gold/5">
+            <span className="w-2 h-2 rounded-full bg-gold animate-pulse" />
+            <span className="font-sans text-[10px] font-light text-gold uppercase tracking-[0.3em]">
+              AKSHAY'S CREATIVE PLATFORM
+            </span>
           </div>
+        </motion.div>
 
-          <motion.p
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.9, ease: [0.16, 1, 0.3, 1] }}
-            className="text-text-primary/70 uppercase tracking-widest text-sm md:text-md max-w-[460px] leading-relaxed mb-12 font-sans font-light"
-          >
-            {subtext || 'A creative platform where photographers, models, videographers, and editors come together to create iconic visual stories.'}
-          </motion.p>
-
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 1.1, ease: [0.16, 1, 0.3, 1] }}
-            className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto"
-          >
-            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-              <WhatsAppButton
-                message={WHATSAPP_MESSAGES.bookShoot}
-                label="BOOK A SHOOT"
-                variant="primary"
-                icon={<Calendar className="w-[18px] h-[18px] mr-2" />}
-                className="justify-center rounded-xl bg-blaze text-white hover:bg-blaze/90 shadow-[0_0_20px_rgba(255,0,47,0.3)] hover:shadow-[0_0_30px_rgba(255,0,47,0.5)] border-none font-light uppercase tracking-[0.2em] text-[11px] !py-4 w-full px-8 transition-all duration-300"
-              />
-            </motion.div>
-            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-              <WhatsAppButton
-                message={WHATSAPP_MESSAGES.joinCommunity}
-                label="JOIN THE COMMUNITY"
-                variant="secondary"
-                icon={<UserPlus className="w-[18px] h-[18px] mr-2" />}
-                className="justify-center rounded-xl border border-gold/50 bg-void/50 backdrop-blur-md text-gold hover:bg-gold/10 font-light uppercase tracking-[0.2em] text-[11px] !py-4 w-full px-8 transition-all duration-300"
-              />
-            </motion.div>
-          </motion.div>
+        <div className="mb-10 relative z-10">
+          {lines.map((line, i) => (
+            <div key={i} className="overflow-hidden mb-2">
+              <motion.h1
+                initial={{ opacity: 0, y: 100 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{
+                  duration: 1.2,
+                  delay: 0.2 + i * 0.15,
+                  ease: [0.16, 1, 0.3, 1],
+                }}
+                className={`font-sans uppercase text-5xl sm:text-6xl md:text-7xl lg:text-7xl xl:text-[88px] font-light leading-[1.1] tracking-widest ${
+                  i === 0 ? 'text-white' : i === 1 ? 'text-gold' : 'text-blaze'
+                }`}
+              >
+                {line}
+              </motion.h1>
+            </div>
+          ))}
         </div>
-      </motion.div>
+
+        <motion.p
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          className="text-text-primary/60 uppercase tracking-[0.2em] text-xs md:text-sm max-w-[480px] leading-relaxed mb-12 font-sans font-light relative z-10"
+        >
+          {subtext || 'A creative platform where photographers, models, videographers, and editors come together to create iconic visual stories.'}
+        </motion.p>
+
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 1, ease: [0.16, 1, 0.3, 1] }}
+          className="flex flex-col sm:flex-row gap-5 w-full sm:w-auto relative z-10"
+        >
+          <WhatsAppButton
+            message={WHATSAPP_MESSAGES.bookShoot}
+            label="BOOK A SHOOT"
+            variant="primary"
+            icon={<Calendar className="w-4 h-4 mr-2" />}
+            className="justify-center rounded-none bg-blaze text-white hover:bg-blaze/90 border-none font-light uppercase tracking-[0.2em] text-[11px] !py-5 px-8 transition-all duration-300"
+          />
+          <WhatsAppButton
+            message={WHATSAPP_MESSAGES.joinCommunity}
+            label="JOIN THE PLATFORM"
+            variant="secondary"
+            icon={<UserPlus className="w-4 h-4 mr-2" />}
+            className="justify-center rounded-none border border-gold/40 bg-transparent text-gold hover:bg-gold/10 font-light uppercase tracking-[0.2em] text-[11px] !py-5 px-8 transition-all duration-300"
+          />
+        </motion.div>
+      </div>
+
+      {/* Right Image Area */}
+      <div className="w-full lg:w-1/2 h-[50vh] lg:h-auto relative overflow-hidden mt-12 lg:mt-0 bg-[#0A0A0A]">
+        <motion.div 
+          initial={{ scale: 1.1, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ duration: 1.5, ease: "easeOut" }}
+          className="absolute inset-0 w-full h-full"
+        >
+          {/* Using a highly editorial, striking fashion image */}
+          <Image
+            src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?q=80&w=2000"
+            alt="Editorial fashion photography"
+            fill
+            className="object-cover object-[center_30%] mix-blend-luminosity opacity-80"
+            priority
+            sizes="(max-width: 1024px) 100vw, 50vw"
+          />
+        </motion.div>
+        
+        {/* Gradients to seamlessly blend the image edge on mobile */}
+        <div className="absolute inset-0 bg-gradient-to-t from-void via-transparent to-transparent lg:hidden" />
+        <div className="absolute inset-0 bg-gradient-to-r from-void via-transparent to-transparent hidden lg:block opacity-60 w-32" />
+        
+        {/* Artistic Overlay Elements */}
+        <div className="absolute bottom-12 right-12 text-white/10 font-sans font-black text-9xl leading-none hidden xl:block select-none pointer-events-none">
+          AC
+        </div>
+      </div>
     </section>
   )
 }
