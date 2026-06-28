@@ -12,13 +12,13 @@ interface ServicesStripProps {
 }
 
 const icons = [User, Camera, Heart, Lightbulb, Video]
-// Premium specific images for categories
+// Premium specific images for categories (All Fashion/Models)
 const categoryImages = [
   "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=800", // Portraits
-  "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=800", // Fashion
-  "https://images.unsplash.com/photo-1509631179647-0177331693ae?q=80&w=800", // Boudoir
-  "https://images.unsplash.com/photo-1551042735-ee7d833c84fb?q=80&w=800", // Concept
-  "https://images.unsplash.com/photo-1536240478700-b869070f9279?q=80&w=800"  // Video
+  "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?q=80&w=800", // Fashion
+  "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=800", // Boudoir
+  "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?q=80&w=800", // Concept
+  "https://images.unsplash.com/photo-1529139574466-a303027c1d8b?q=80&w=800"  // Video
 ]
 
 export default function ServicesStrip({ services }: ServicesStripProps) {

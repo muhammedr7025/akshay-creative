@@ -50,8 +50,8 @@ export default function HeroSection({ headline, subtext }: HeroSectionProps) {
         <div className="absolute inset-0 md:inset-y-0 md:left-[30%] md:right-0 w-full md:w-[70%] h-full z-10 overflow-hidden">
           <motion.div style={{ y: imageY }} className="w-full h-[120%] -top-[10%] relative">
             <Image
-              src="https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?q=80&w=2000"
-              alt="Creative portrait with neon lighting"
+              src="https://images.unsplash.com/photo-1492633423870-43d1cd2a4507?q=80&w=2000"
+              alt="Creative fashion portrait"
               fill
               className="object-cover object-center opacity-60 md:opacity-80 mix-blend-luminosity group-hover:scale-105 transition-transform duration-[20s] ease-out"
               priority
