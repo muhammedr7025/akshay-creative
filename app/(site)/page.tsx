@@ -42,12 +42,33 @@ export default async function HomePage() {
       <SectionDivider />
 
       {/* Manifesto */}
-      <section className="py-24 md:py-32 bg-blaze">
-        <div className="max-w-5xl mx-auto px-6 md:px-12 lg:px-24">
+      <section className="py-32 md:py-48 bg-blaze relative overflow-hidden flex items-center justify-center">
+        {/* Premium Background Marquee (Subtle) */}
+        <div className="absolute top-1/2 -translate-y-1/2 left-0 w-[200vw] flex flex-col gap-4 opacity-5 pointer-events-none -rotate-3 select-none">
+          <div className="flex gap-4 whitespace-nowrap animate-marquee-slow font-display text-[150px] font-black uppercase italic leading-none">
+            CREATE COLLABORATE INSPIRE CREATE COLLABORATE INSPIRE CREATE COLLABORATE INSPIRE
+          </div>
+          <div className="flex gap-4 whitespace-nowrap animate-marquee-slow-reverse font-display text-[150px] font-black uppercase italic leading-none">
+            AKSHAY CREATIVE PLATFORM AKSHAY CREATIVE PLATFORM AKSHAY CREATIVE PLATFORM
+          </div>
+        </div>
+
+        {/* Subtle grid texture */}
+        <div className="absolute inset-0 opacity-[0.15] pointer-events-none" style={{
+          backgroundImage: 'linear-gradient(rgba(0,0,0,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.5) 1px, transparent 1px)',
+          backgroundSize: '40px 40px'
+        }} />
+
+        <div className="max-w-[1200px] mx-auto px-6 md:px-12 lg:px-24 relative z-10 text-center">
           <AnimatedSection>
-            <p className="font-display text-2xl md:text-4xl lg:text-5xl font-bold italic text-void text-center leading-tight">
-              &ldquo;More than a photography studio — a creative community where ideas become collaborations, collaborations become opportunities, and opportunities become lasting careers.&rdquo;
-            </p>
+            <div className="inline-block px-4 py-1 border border-void/20 rounded-full mb-12">
+              <span className="font-sans text-[11px] font-bold text-void uppercase tracking-[0.2em]">
+                THE MANIFESTO
+              </span>
+            </div>
+            <h2 className="font-sans text-4xl sm:text-5xl md:text-6xl lg:text-[76px] font-medium text-void text-center leading-[1.05] tracking-tight">
+              &ldquo;More than a photography studio — a <span className="font-bold font-display italic">creative community</span> where ideas become collaborations, and opportunities become <span className="font-bold font-display italic">lasting careers.</span>&rdquo;
+            </h2>
           </AnimatedSection>
         </div>
       </section>

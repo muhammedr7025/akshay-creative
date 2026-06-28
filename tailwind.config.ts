@@ -28,6 +28,20 @@ const config: Config = {
         blaze: "0 0 20px rgba(255, 0, 47, 0.15)",
         "blaze-strong": "0 0 40px rgba(255, 0, 47, 0.25)",
       },
+      keyframes: {
+        'marquee-slow': {
+          '0%': { transform: 'translateX(0%)' },
+          '100%': { transform: 'translateX(-50%)' },
+        },
+        'marquee-slow-reverse': {
+          '0%': { transform: 'translateX(-50%)' },
+          '100%': { transform: 'translateX(0%)' },
+        },
+      },
+      animation: {
+        'marquee-slow': 'marquee-slow 50s linear infinite',
+        'marquee-slow-reverse': 'marquee-slow-reverse 50s linear infinite',
+      },
     },
   },
   plugins: [],
