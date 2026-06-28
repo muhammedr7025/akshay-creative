@@ -85,26 +85,49 @@ export default async function HomePage() {
 
       <SectionDivider />
 
-      {/* Final CTA */}
-      <section className="py-24 md:py-32 bg-void relative">
-        <div className="absolute top-0 left-0 right-0 h-[1px] bg-blaze/30" />
-        <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-blaze/30" />
-        <div className="max-w-4xl mx-auto px-6 md:px-12 lg:px-24 text-center">
+      {/* Final CTA / Footer Teaser */}
+      <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden border-t border-void-border">
+        {/* Background Image */}
+        <div className="absolute inset-0 z-0">
+          <img 
+            src="https://images.unsplash.com/photo-1604904612715-47bf9d9bc670?q=80&w=2000" 
+            alt="Creative Fashion" 
+            className="w-full h-full object-cover object-center opacity-40 scale-105"
+          />
+          {/* Gradients for depth and readability */}
+          <div className="absolute inset-0 bg-gradient-to-b from-void via-void/80 to-void" />
+          <div className="absolute inset-0 bg-blaze/5 mix-blend-overlay" />
+        </div>
+
+        <div className="max-w-[1200px] mx-auto px-6 md:px-12 lg:px-24 relative z-10 text-center flex flex-col items-center">
           <AnimatedSection>
-            <h2 className="font-display text-[36px] md:text-[56px] font-bold italic text-text-primary mb-8">
-              Ready to create something iconic?
+            <span className="block font-sans text-[11px] font-bold text-blaze uppercase tracking-[0.3em] mb-8">
+              Your next big project starts here
+            </span>
+            
+            <h2 className="flex flex-col items-center justify-center mb-16">
+              <span className="font-sans text-3xl md:text-5xl lg:text-6xl font-medium text-text-primary tracking-tight leading-none mb-2">
+                Ready to create
+              </span>
+              <span className="font-display text-6xl md:text-8xl lg:text-[140px] font-bold italic text-white tracking-tighter leading-none drop-shadow-2xl">
+                something iconic?
+              </span>
             </h2>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+
+            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
               <WhatsAppButton
                 message={WHATSAPP_MESSAGES.bookShoot}
                 label="Book a Shoot"
                 variant="primary"
+                className="!px-10 !py-4 !text-sm"
               />
+              <span className="font-display italic text-text-primary/40">or</span>
               <WhatsAppButton
                 message={WHATSAPP_MESSAGES.joinCommunity}
                 label="Join the Platform"
                 variant="secondary"
                 showIcon={false}
+                className="!px-10 !py-4 !text-sm border-void-border/80 hover:border-text-primary"
               />
             </div>
           </AnimatedSection>
