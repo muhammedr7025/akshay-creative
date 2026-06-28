@@ -1,22 +1,11 @@
 import type { Metadata } from 'next'
-import { Playfair_Display, Inter, Space_Grotesk } from 'next/font/google'
+import { Montserrat } from 'next/font/google'
 import './globals.css'
 
-const playfair = Playfair_Display({
+const montserrat = Montserrat({
   subsets: ['latin'],
-  variable: '--font-playfair',
-  display: 'swap',
-})
-
-const inter = Inter({
-  subsets: ['latin'],
-  variable: '--font-inter',
-  display: 'swap',
-})
-
-const spaceGrotesk = Space_Grotesk({
-  subsets: ['latin'],
-  variable: '--font-space',
+  weight: ['300', '400', '500', '600', '700', '900'],
+  variable: '--font-montserrat',
   display: 'swap',
 })
 
@@ -34,7 +23,7 @@ export const metadata: Metadata = {
     type: 'website',
   },
   other: {
-    'theme-color': '#FF002F',
+    'theme-color': '#0F1432', // Crows Navy
   },
 }
 
@@ -44,8 +33,8 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={`${playfair.variable} ${inter.variable} ${spaceGrotesk.variable}`}>
-      <body className="font-sans antialiased bg-void text-text-primary">
+    <html lang="en" className={`${montserrat.variable}`}>
+      <body className="font-sans antialiased bg-void text-text-primary uppercase font-light">
         {children}
       </body>
     </html>

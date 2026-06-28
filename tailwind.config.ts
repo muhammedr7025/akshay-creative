@@ -10,23 +10,23 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        blaze: "#FF002F",
-        "blaze-dim": "#8B0018",
-        void: "#100101",
-        "void-surface": "#1A0101",
-        "void-border": "#2D0404",
-        "void-deep": "#0A0000",
+        blaze: "#FF001E", // Crows Red
+        gold: "#FFAA00",  // Crows Gold
+        void: "#0F1432",  // Crows Navy
+        "void-surface": "#161D45",
+        "void-border": "#212A60",
+        "void-deep": "#080B1C",
         "text-primary": "#F5F0F0",
-        "text-muted": "#7A5555",
+        "text-muted": "#8A94C2",
       },
       fontFamily: {
-        display: ["var(--font-playfair)", "Playfair Display", "serif"],
-        sans: ["var(--font-inter)", "Inter", "sans-serif"],
-        label: ["var(--font-space)", "Space Grotesk", "monospace"],
+        display: ["var(--font-montserrat)", "Montserrat", "sans-serif"],
+        sans: ["var(--font-montserrat)", "Montserrat", "sans-serif"],
+        label: ["var(--font-montserrat)", "Montserrat", "sans-serif"],
       },
       boxShadow: {
-        blaze: "0 0 20px rgba(255, 0, 47, 0.15)",
-        "blaze-strong": "0 0 40px rgba(255, 0, 47, 0.25)",
+        blaze: "0 0 20px rgba(255, 0, 30, 0.15)",
+        "blaze-strong": "0 0 40px rgba(255, 0, 30, 0.25)",
       },
       keyframes: {
         'marquee-slow': {
